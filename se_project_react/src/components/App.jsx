@@ -1,13 +1,16 @@
 import { useState } from "react";
 import "../blocks/index.css";
 import Header from "./Header";
+import Main from "./Main";
 
 function App() {
+  const [weatherData, setWeatherData] = useState({ type: "cold" });
+
   return (
     <div className="page">
       <div className="page__content">
         <Header />
-        <main />
+        <Main weatherData={weatherData} />
       </div>
     </div>
   );
