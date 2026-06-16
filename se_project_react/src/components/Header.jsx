@@ -2,7 +2,7 @@ import "../blocks/Header.css";
 import Logo from "../assets/Logo.svg";
 import Avatar from "../assets/avatar.svg";
 
-function Header() {
+function Header({ handleAddClick }) {
   return (
     <header className="header">
       <div className="header__container-logo-date">
@@ -10,7 +10,13 @@ function Header() {
         <p className="header__d-and-l">Date, Location</p>
       </div>
 
-      <button className="header__add-clothes-btn">+ add clothes</button>
+      <button
+        onClick={handleAddClick}
+        type="button"
+        className="header__add-clothes-btn"
+      >
+        + add clothes
+      </button>
       <div className="header__user-container">
         <p className="header__username">Terrence Tegegne</p>
         <img src={Avatar} alt="Terrence Tegegne" className="header__avatar" />
