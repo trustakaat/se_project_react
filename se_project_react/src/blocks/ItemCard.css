@@ -1,19 +1,5 @@
-.cards__list {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  gap: 20px;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
-
 .card {
   position: relative;
-}
-
-.cards {
-  width: 100%;
 }
 
 .card__title {
@@ -35,10 +21,9 @@
 }
 
 .card__image {
-  width: 100%;
   display: block;
-  width: 328px;
+  width: 323px;
   height: 328px;
-  top: 279px;
-  left: 385px;
+  border-radius: 19px;
+  border: 1px solid #0000004d;
 }
