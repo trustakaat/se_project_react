@@ -1,0 +1,39 @@
+.modal__content.modal__content_type_image {
+  max-width: 498px;
+  max-height: 610px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.modal__image {
+  margin: 0;
+  max-width: 498px;
+  max-height: 498px;
+  width: 100%;
+}
+
+.modal__footer {
+  padding-left: 24px;
+}
+
+.modal__caption {
+  margin: 20px 0 12px 0;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.modal__weather {
+  margin: 0 0 32px 0;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
