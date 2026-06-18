@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import "../blocks/index.css";
+import "../index.css";
 import { coordinates, APIkey } from "../utils/constants";
 import Header from "./Header";
 import Main from "./Main";
