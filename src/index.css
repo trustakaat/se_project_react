@@ -7,25 +7,3 @@
 @import "./blocks/ItemModal.css";
 @import "./blocks/ModalWithForm.css";
 @import "./blocks/WeatherCard.css";
-
-@font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("./CabinetGrotesk-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cabinet Grotesk";
-  src: url("./CabinetGrotesk-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: bold;
-  font-display: swap;
-}
-
-body {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 500;
-  margin: 0;
-}
