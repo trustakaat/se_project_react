@@ -1,3 +1,4 @@
+import "../blocks/WeatherCard.css";
 import { weatherOptions, defaultWeatherOptions } from "../utils/constants";
 
 function WeatherCard({ weatherData }) {

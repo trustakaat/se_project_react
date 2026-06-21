@@ -1,5 +1,6 @@
 import Logo from "../assets/Logo.svg";
 import Avatar from "../assets/avatar.svg";
+import "../blocks/Header.css";
 
 function Header({ handleAddClick, weatherData }) {
   const currentDate = new Date().toLocaleString("default", {

@@ -1,3 +1,4 @@
+import "../blocks/ModalWithForm.css";
 import close from "../assets/close.svg";
 
 function ModalWithForm({

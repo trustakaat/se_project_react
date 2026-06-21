@@ -1,3 +1,4 @@
+import "../blocks/ItemModal.css";
 import close from "../assets/close.svg";
 
 function ItemModal({ activeModal, onClose, card }) {

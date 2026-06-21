@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import ModalWithForm from "./ModalWithForm";
 import ItemModal from "./ItemModal";
 import { filterWeatherData, getWeather } from "../utils/weatherapi";
+import "../blocks/App.css";
 
 function App() {
   const [weatherData, setWeatherData] = useState({

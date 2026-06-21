@@ -1,9 +1,1 @@
 @import url(./vendor/normalize.css);
-@import "./blocks/App.css";
-@import "./blocks/Header.css";
-@import "./blocks/Footer.css";
-@import "./blocks/Main.css";
-@import "./blocks/ItemCard.css";
-@import "./blocks/ItemModal.css";
-@import "./blocks/ModalWithForm.css";
-@import "./blocks/WeatherCard.css";
