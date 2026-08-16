@@ -53,6 +53,11 @@
   letter-spacing: 0%;
 }
 
+.header__username-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .header__avatar {
   height: 40px;
   width: 40px;

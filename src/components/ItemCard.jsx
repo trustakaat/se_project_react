@@ -5,6 +5,8 @@ function ItemCard({ item, onCardClick }) {
     onCardClick(item);
   };
 
+  console.log(item);
+
   return (
     <li className="card">
       <h2 className="card__title">{item.name}</h2>

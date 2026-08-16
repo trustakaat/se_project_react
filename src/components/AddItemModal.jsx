@@ -1,5 +1,6 @@
 import ModalWithForm from "./ModalWithForm";
 import { useForm } from "../Hooks/useForm";
+import { useEffect } from "react";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const defaultValues = {
@@ -8,10 +9,17 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     weather: "",
   };
 
-  const { values, handleChange } = useForm(defaultValues);
+  const { values, handleChange, setValues, setErrors, errors, isValid } =
+    useForm(defaultValues);
+
+  useEffect(() => {
+    setValues(defaultValues);
+    setErrors({});
+  }, [isOpen]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    console.log(values);
     onAddItem(values);
   }
 
@@ -22,6 +30,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
       onClose={onClose}
       onAddItem={handleSubmit}
       isOpen={isOpen}
+      isValid={isValid}
     >
       <label htmlFor="name" className="modal__label">
         Name
@@ -33,8 +42,12 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           name="name"
           value={values.name}
           onChange={handleChange}
+          minLength="3"
           required
         />
+        <span className="Modal__error" id="name-error">
+          {errors.name}
+        </span>
       </label>
       <label htmlFor="imageurl" className="modal__label">
         Image
@@ -48,6 +61,9 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           onChange={handleChange}
           required
         />
+        <span className="Modal__error" id="name-error">
+          {errors.link}
+        </span>
       </label>
       <fieldset className="modal__radio-btns">
         <legend className="modal__legend">Select the weather type:</legend>
@@ -58,10 +74,14 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             id="hot"
             name="weather"
             value="hot"
+            checked={values.weather === "hot"}
             onChange={handleChange}
             required
           />{" "}
-          Hot
+          Hot{" "}
+          <span className="Modal__error" id="name-error">
+            {errors.weather}
+          </span>
         </label>
         <label htmlFor="warm" className="modal__label modal__label_type_radio">
           <input
@@ -70,10 +90,14 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             id="warm"
             name="weather"
             value="warm"
+            checked={values.weather === "warm"}
             onChange={handleChange}
             required
           />{" "}
-          Warm
+          Warm{" "}
+          <span className="Modal__error" id="name-error">
+            {errors.weather}
+          </span>
         </label>
         <label htmlFor="cold" className="modal__label modal__label_type_radio">
           <input
@@ -82,10 +106,14 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             id="cold"
             name="weather"
             value="cold"
+            checked={values.weather === "cold"}
             onChange={handleChange}
             required
           />{" "}
-          Cold
+          Cold{" "}
+          <span className="Modal__error" id="name-error">
+            {errors.weather}
+          </span>
         </label>
       </fieldset>
     </ModalWithForm>
