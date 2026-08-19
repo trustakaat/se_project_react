@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const defaultValues = {
     name: "",
-    link: "",
+    imageUrl: "",
     weather: "",
   };
 
@@ -19,7 +19,6 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    console.log(values);
     onAddItem(values);
   }
 
@@ -57,7 +56,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           id="imageurl"
           placeholder="Image URL"
           name="link"
-          value={values.link}
+          value={values.imageUrl}
           onChange={handleChange}
           required
         />

@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:3001";
 
-export const getItems = () => {
+export const GetItems = () => {
   return fetch(`${baseUrl}/items`).then((res) => {
     if (res.ok) {
       return res.json();
@@ -9,7 +9,7 @@ export const getItems = () => {
   });
 };
 
-export const addItem = ({ name, link, weather }) => {
+export const AddItem = ({ name, link, weather }) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -24,7 +24,7 @@ export const addItem = ({ name, link, weather }) => {
   });
 };
 
-export const deleteItem = (id) => {
+export const DeleteItem = (id) => {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
   }).then((res) => {

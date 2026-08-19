@@ -2,11 +2,19 @@ import ClothesSection from "./ClothesSection";
 import SideBar from "./SideBar";
 import "../blocks/Profile.css";
 
-export default function Profile({ handleAddClick }) {
+export default function Profile({
+  handleAddClick,
+  handCardClick,
+  ClothingItems,
+}) {
   return (
     <div className="profile_page">
       <SideBar />
-      <ClothesSection handleAddClick={handleAddClick} />
+      <ClothesSection
+        handleAddClick={handleAddClick}
+        handleCardClick={handleAddClick}
+        clothingItems={clothingItems}
+      />
     </div>
   );
 }
