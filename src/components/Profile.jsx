@@ -4,15 +4,15 @@ import "../blocks/Profile.css";
 
 export default function Profile({
   handleAddClick,
-  handCardClick,
-  ClothingItems,
+  handleCardClick,
+  clothingItems,
 }) {
   return (
     <div className="profile_page">
       <SideBar />
       <ClothesSection
         handleAddClick={handleAddClick}
-        handleCardClick={handleAddClick}
+        handleCardClick={handleCardClick}
         clothingItems={clothingItems}
       />
     </div>

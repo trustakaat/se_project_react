@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { coordinates, apiKey } from "../utils/constants";
+import { apiKey } from "../utils/Keys.js";
 import { GetItems, AddItem, DeleteItem } from "../utils/api";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import ModalWithForm from "./ModalWithForm";
 import ItemModal from "./ItemModal";
 import { filterWeatherData, getWeather } from "../utils/weatherApi";
 import "../blocks/App.css";
@@ -82,12 +81,30 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, apiKey)
-      .then((data) => {
-        const filteredData = filterWeatherData(data);
-        setWeatherData(filteredData);
-      })
-      .catch(console.error);
+    if (!navigator.geolocation) {
+      console.error("Geolocation is not supported by this browser.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        getWeather(
+          {
+            latitude: coords.latitude,
+            longitude: coords.longitude,
+          },
+          apiKey,
+        )
+          .then((data) => {
+            const filteredData = filterWeatherData(data);
+            setWeatherData(filteredData);
+          })
+          .catch(console.error);
+      },
+      (error) => {
+        console.error("Unable to get the user's location.", error);
+      },
+    );
   }, []);
 
   return (

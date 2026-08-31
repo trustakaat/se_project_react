@@ -55,13 +55,13 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           className="modal__input"
           id="imageurl"
           placeholder="Image URL"
-          name="link"
+          name="imageUrl"
           value={values.imageUrl}
           onChange={handleChange}
           required
         />
         <span className="Modal__error" id="name-error">
-          {errors.link}
+          {errors.imageUrl}
         </span>
       </label>
       <fieldset className="modal__radio-btns">
