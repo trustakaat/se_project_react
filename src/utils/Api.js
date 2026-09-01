@@ -7,21 +7,21 @@ export const checkResponse = (res) => {
   return Promise.reject(`Error: ${res.status}`);
 };
 
-export const GetItems = () => {
+export const getItems = () => {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 };
 
-export const AddItem = ({ name, ImageUrl, weather }) => {
+export const addItem = ({ name, imageUrl, weather }) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, ImageUrl, weather }),
+    body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
 };
 
-export const DeleteItem = (id) => {
+export const deleteItem = (id) => {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
   }).then(checkResponse);

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { apiKey } from "../utils/Keys.js";
-import { GetItems, AddItem, DeleteItem } from "../utils/api";
+import { getItems, addItem, deleteItem } from "../utils/api";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
+
 import ItemModal from "./ItemModal";
 import { filterWeatherData, getWeather } from "../utils/weatherApi";
 import "../blocks/App.css";
@@ -30,7 +31,7 @@ function App() {
   };
 
   useEffect(() => {
-    GetItems()
+    getItems()
       .then((data) => {
         setClothingItems(data);
       })
@@ -38,16 +39,22 @@ function App() {
   }, []);
 
   const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
-    AddItem({ name, imageUrl, weather })
+    const normalizedWeather = String(weather).toLowerCase();
+
+    addItem({ name, imageUrl, weather: normalizedWeather })
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        const itemToAdd = {
+          ...newItem,
+          weather: String(newItem.weather).toLowerCase(),
+        };
+        setClothingItems([itemToAdd, ...clothingItems]);
         closeActiveModal();
       })
       .catch(console.error);
   };
 
   const handleDeleteItem = (id) => {
-    DeleteItem(id)
+    deleteItem(id)
       .then(() => {
         setClothingItems((prevItems) =>
           prevItems.filter((item) => item._id !== id),
@@ -105,6 +112,17 @@ function App() {
         console.error("Unable to get the user's location.", error);
       },
     );
+  }, []);
+
+  useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", closeByEscape);
+
+    return () => document.removeEventListener("keydown", closeByEscape);
   }, []);
 
   return (
